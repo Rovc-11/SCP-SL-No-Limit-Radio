@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <OutputType>Library</OutputType>
+    <AssemblyName>OnBirsNoLimitRadio</AssemblyName>
+    <RootNamespace>OnBirsNoLimitRadio</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Nullable>disable</Nullable>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- EXILED'in kendisi indirilmez; sadece NuGet üzerinden derleme referansı olarak kullanılır.
+         Sürümü NuGet.org / https://github.com/ExMod-Team/EXILED üzerinden güncel tutun.
+         Bu paket Assembly-CSharp-Publicized.dll'i de içerir, bu yüzden ayrı bir lib/ klasörü
+         veya elle DLL referansı eklemene gerek YOK. -->
+    <PackageReference Include="ExMod.Exiled" Version="9.14.2" />
+
+    <!-- Mirror, UnityEngine, PluginAPI, NorthwoodLib gibi geri kalan tüm sunucu/oyun DLL'lerini
+         sağlar. İkisi birlikte tam derleme kapanışı oluşturur; sunucu dosyalarını indirmeye
+         veya manuel referans eklemeye gerek kalmaz. -->
+    <PackageReference Include="Exiled.Dev.References" Version="1.0.4" />
+  </ItemGroup>
+
+</Project>
