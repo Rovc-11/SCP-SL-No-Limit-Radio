@@ -44,7 +44,9 @@ dotnet build
 
 Bu komut `ExMod.Exiled` ve `Exiled.Dev.References` NuGet paketlerini otomatik olarak restore edip projeyi derler. Ayrı bir `lib/` klasörüne veya elle DLL referansına gerek yoktur.
 
-Derleme çıktısı: `bin/Debug/netstandard2.1/OnBirsNoLimitRadio.dll`
+Proje `net48` (.NET Framework 4.8) hedefler — EXILED'in kendisi de bu framework'ü hedeflediği için (`netstandard2.1` değil). `Microsoft.NETFramework.ReferenceAssemblies` paketi sayesinde Visual Studio kurulu olmayan makinelerde de (sadece .NET SDK ile) derlenebilir.
+
+Derleme çıktısı: `bin/Debug/net48/OnBirsNoLimitRadio.dll`
 
 ## Kurulum
 

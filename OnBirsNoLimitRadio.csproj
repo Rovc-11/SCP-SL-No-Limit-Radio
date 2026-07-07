@@ -1,11 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <!-- EXILED'in kendisi (bkz. EXILED.props) net48 hedefliyor; netstandard2.1 kullanılırsa
+         NuGet paketleri uyumsuz sürümle (NU1701 fallback) restore edilir ve derleme
+         "Predefined type is not defined" hatalarıyla patlar. Bu yüzden net48 kullanıyoruz. -->
+    <TargetFramework>net48</TargetFramework>
     <OutputType>Library</OutputType>
     <AssemblyName>OnBirsNoLimitRadio</AssemblyName>
     <RootNamespace>OnBirsNoLimitRadio</RootNamespace>
     <LangVersion>latest</LangVersion>
+    <PlatformTarget>x64</PlatformTarget>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Nullable>disable</Nullable>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -22,6 +26,11 @@
          sağlar. İkisi birlikte tam derleme kapanışı oluşturur; sunucu dosyalarını indirmeye
          veya manuel referans eklemeye gerek kalmaz. -->
     <PackageReference Include="Exiled.Dev.References" Version="1.0.4" />
+
+    <!-- net48 hedeflerken bazı makinelerde Visual Studio'nun ".NET Framework 4.8 Targeting Pack"i
+         kurulu olmayabilir; dotnet CLI ile derlerken "reference assemblies not found" hatası
+         almamak için bu paket, hedef assembly'leri NuGet üzerinden sağlar. -->
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>
